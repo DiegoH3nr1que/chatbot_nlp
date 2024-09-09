@@ -47,3 +47,18 @@ A função principal que inicializa o chatbot, capturando a entrada do usuário 
     ```python
     python main.py
     ```
+
+### Diagrama do chatbot:
+```mermaid
+graph TD
+    A[Iniciar Chatbot] --> B[Usuário faz pergunta]
+    B --> C[Tokenizar a<br> pergunta do usuário]
+    C --> D{Verificar<br> correspondência exata<br> na história}
+    D -->|Sim| E[Retornar resposta<br> baseada na história]
+    D -->|Não| F{Procurar sinônimos<br> ou correspondências\n aproximadas}
+    F -->|Sim| E
+    F -->|Não| G[Retornar resposta<br> genérica]
+    G --> H[Fim ou Nova Pergunta]
+    E --> H
+
+```
